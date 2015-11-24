@@ -1,0 +1,36 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <parameters>
+        <parameter key="emarref.shopify_oauth.resource_owner_factory.class">Emarref\Bundle\ShopifyOAuthBundle\ResourceOwner\Factory</parameter>
+        <parameter key="emarref.shopify_oauth.shop_provider.session.class">Emarref\Bundle\ShopifyOAuthBundle\Shop\SessionShopProvider</parameter>
+        <parameter key="emarref.shopify_oauth.resource_owner.class">Emarref\Bundle\ShopifyOAuthBundle\ResourceOwner\ShopifyResourceOwner</parameter>
+        <parameter key="emarref.shopify_oauth.shopify.resource_owner_name">shopify</parameter>
+    </parameters>
+
+    <services>
+        <service id="emarref.shopify_oauth.shop_provider.session" class="%emarref.shopify_oauth.shop_provider.session.class%">
+            <argument type="service" id="session"/>
+        </service>
+
+        <service id="emarref.shopify_oauth.resource_owner_factory" class="%emarref.shopify_oauth.resource_owner_factory.class%">
+            <argument type="service" id="emarref.shopify_oauth.shop_provider.session"/>
+        </service>
+
+        <service id="emarref.shopify_oauth.resource_owner" class="%emarref.shopify_oauth.resource_owner.class%" factory-service="emarref.shopify_oauth.resource_owner_factory" factory-method="get">
+            <argument type="service" id="hwi_oauth.http_client"/>
+            <argument type="service" id="security.http_utils"/>
+            <argument type="collection">
+                <argument key="client_id">%emarref.shopify_oauth.shopify.api_key%</argument>
+                <argument key="client_secret">%emarref.shopify_oauth.shopify.secret%</argument>
+                <argument key="scope">%emarref.shopify_oauth.shopify.scope%</argument>
+            </argument>
+            <argument>%emarref.shopify_oauth.shopify.resource_owner_name%</argument>
+            <argument type="service" id="hwi_oauth.storage.session"/>
+        </service>
+
+    </services>
+</container>

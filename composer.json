@@ -1,0 +1,15 @@
+{
+    "name": "emarref/shopify-oauth-bundle",
+    "description": "Adds Shopify as a resource provider for HWIOAuthBundle",
+    "type": "symfony-bundle",
+    "require": {
+        "hwi/oauth-bundle": "~0.3.0"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Malcolm Fell",
+            "email": "emarref@gmail.com"
+        }
+    ]
+}
