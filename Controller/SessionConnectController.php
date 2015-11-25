@@ -12,7 +12,7 @@ class SessionConnectController extends Controller
      */
     public function redirectToShopifyServiceAction(Request $request)
     {
-        $sessionParameters = $request->attributes->get('session_parameters', []);
+        $sessionParameters = $request->attributes->get('session_parameters', ['shopify_shop']);
         $service = $this->getParameter('emarref.shopify_oauth.shopify.resource_owner_name');
 
         foreach ($sessionParameters as $parameterName) {
