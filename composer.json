@@ -11,5 +11,10 @@
             "name": "Malcolm Fell",
             "email": "emarref@gmail.com"
         }
-    ]
+    ],
+    "autoload": {
+        "psr-4": {
+            "Emarref\\Bundle\\ShopifyOAuthBundle\\": ""
+        }
+    }
 }
