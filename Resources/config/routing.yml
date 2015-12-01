@@ -1,5 +1,4 @@
-emarref_shopify_oauth_connect:
+emarref_shopify_oauth_redirect:
     path: /
     defaults:
         _controller:        EmarrefShopifyOAuthBundle:SessionConnect:redirectToShopifyService
-        session_parameters: [shopify_shop]
