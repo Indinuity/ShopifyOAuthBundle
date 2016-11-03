@@ -3,12 +3,15 @@
 	"description" : "Adds Shopify as a resource provider for HWIOAuthBundle",
 	"type" : "symfony-bundle",
 	"require" : {
-		"hwi/oauth-bundle" : "~0.4"
+		"hwi/oauth-bundle" : "^0.5"
 	},
 	"license" : "MIT",
 	"authors" : [{
 			"name" : "Malcolm Fell",
 			"email" : "emarref@gmail.com"
+		}, {
+			"name" : "Jayesbe",
+			"email" : "jayesbe@users.noreply.github.com"
 		}
 	],
 	"autoload" : {
