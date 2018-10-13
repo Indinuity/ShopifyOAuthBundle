@@ -20,7 +20,8 @@
             <argument type="service" id="emarref.shopify_oauth.shop_provider.session"/>
         </service>
 
-        <service id="emarref.shopify_oauth.resource_owner" class="%emarref.shopify_oauth.resource_owner.class%" factory-service="emarref.shopify_oauth.resource_owner_factory" factory-method="get">
+        <service id="emarref.shopify_oauth.resource_owner" class="%emarref.shopify_oauth.resource_owner.class%">
+            <factory service="emarref.shopify_oauth.resource_owner_factory" method="get" />
             <argument type="service" id="hwi_oauth.http_client"/>
             <argument type="service" id="security.http_utils"/>
             <argument type="collection">
