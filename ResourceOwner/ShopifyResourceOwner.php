@@ -40,10 +40,8 @@ class ShopifyResourceOwner extends GenericOAuth2ResourceOwner
             ]);
         };
 
-        $resolver->setNormalizers([
-            'authorization_url' => $baseUrlNormalizer,
-            'access_token_url'  => $baseUrlNormalizer,
-            'infos_url'         => $baseUrlNormalizer,
-        ]);
+        $resolver->setNormalizer('authorization_url', $baseUrlNormalizer);
+        $resolver->setNormalizer('access_token_url', $baseUrlNormalizer);
+        $resolver->setNormalizer('infos_url', $baseUrlNormalizer);        
     }
 }
